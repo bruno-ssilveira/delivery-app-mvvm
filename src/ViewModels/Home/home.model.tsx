@@ -5,7 +5,7 @@ import { formatProducts } from "../../shared/utils/product.utils";
 export const useHomeModel = () => {
 	const perPage = 5;
 
-	const { data } = useInfiniteQuery({
+	const { data, fetchNextPage, isFetching } = useInfiniteQuery({
 		queryKey: ['products'],
 		queryFn: ({ pageParam }) =>
 			getProducts({
@@ -21,8 +21,10 @@ export const useHomeModel = () => {
 	const products = data?.pages.flatMap((page) => page.items) ?? [];
 
 	const formatedProducts = formatProducts(products);
-	
+
 	return {
 		products: formatedProducts,
+		fetchNextPage,
+		isFetching
 	};
 };
