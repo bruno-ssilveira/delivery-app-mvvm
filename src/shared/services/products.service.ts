@@ -4,6 +4,7 @@ import { GetProductsResponse } from '../interfaces/https/get-products';
 interface GetProductsParams {
   page: number;
   perPage: number;
+  category?: string;
 }
 
 export const getProducts = async (

@@ -28,7 +28,8 @@ export const HeaderView: FC<Props> = ({
               padding: 8,
               paddingRight: 16,
               paddingHorizontal: 16,
-              borderColor: '#1E293B',
+              borderColor:
+                selectedCategory === category ? '#BEF264' : '#1E293B',
               borderWidth: 1,
               borderRadius: 6,
               marginRight: 16,

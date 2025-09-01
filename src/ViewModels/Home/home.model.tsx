@@ -12,11 +12,12 @@ export const useHomeModel = () => {
 
   const { data, fetchNextPage, isFetching, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
-      queryKey: ['products'],
+      queryKey: ['products', selectedCategory],
       queryFn: ({ pageParam }) =>
         getProducts({
           page: pageParam,
           perPage,
+          category: selectedCategory,
         }),
       initialPageParam: 1,
       getNextPageParam: (lastPage, _allPages, lastPageParam) => {
